@@ -1,27 +1,19 @@
-# App Repo Template
-
-A ready-to-use template repository for quickly bootstrapping new projects.
+# GenAI Practice Lab
+This repo houses the code of agents created using Google ADK for testing and learning purposes.
 
 ## Prerequisites
 
 - [pre-commit](https://pre-commit.com/) >= 4.2.0
-- [kubectl](https://kubernetes.io/docs/tasks/tools/) >= v1.30.5
-- [helm](https://helm.sh/) >= 3.13.1
-
-> [!NOTE]
-> See [Installation Guide](https://kubernetes.io/docs/tasks/tools/) on how to install Kubernetes Tools.
+- [python3](https://www.python.org/downloads/) >= 3.11+
+- [pip3](https://pypi.org/project/pip/) >= 26.0.1
+- [GoogleADK](https://google.github.io/adk-docs/) >= 1.25.0
 
 ## Repo Layout
-At a high level, these folders make up the `github.com/oneanupam/app-repo-template` repository.
+At a high level, these folders make up the `github.com/oneanupam/genai-practice-lab` repository.
 
 - [`.github/`](./.github) - This folder contains the codeowners, pull request template and github action yaml files.
 - [`.vscode/`](./.vscode) - It contains project-specific settings and configurations to customize how VS Code behaves for the workspace.
-- [`build/`](./build) - This folder contains the build config files to build/deploy the application code.
 - [`docs/`](./docs) - This folder contains the documentations related to the repository.
-- [`examples/`](./examples) - This folder contains the examples to use the module or code.
-- [`helm-charts/`](./helm-charts) - This folder contains the helm chart to deploy the kubernetes manifests.
-- [`helm-overrides/`](./helm-overrides) - This folder contains the override files to pass to variables declared in helm charts.
-- [`src/`](./src) - This folder contains the application code or scripts.
 - [`.pre-commit-config.yaml`](.pre-commit-config.yaml) - This file contains the plugin configuration for pre-commit.
 - [`.editorconfig`](.editorconfig) - This file has the configuration for the editorconfig plugin.
 
@@ -43,6 +35,28 @@ pre-commit run <hook_id>
 ```
 
 Once you have pre-commit installed, adding pre-commit plugins to your project is done with the .pre-commit-config.yaml configuration file. You can generate a very basic configuration using `pre-commit sample-config`. Every time you clone a project using pre-commit running pre-commit install should always be the first thing you do.
+
+## Bootstrap Virtual Environment
+It is a best practice to create a virtual environment for your application to avoid any conflict in dependencies between multiple applications. Hence, it is recommended to create a virtual environment (using python's default package "venv" or of your choice) and install all the dependencies. Follow below according to your operating system.
+
+```bash
+# Linux OS:
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+# Windows OS:
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+> [!NOTE]
+> Activation makes the virtual environment the default Python interpreter for the duration of a shell session. Because, This will prepend that directory to your PATH, so that running python will invoke the virtual environment’s Python interpreter. As an indication of virtual environment activation, current shell prompt will prepend the name of the virtual environment you are currently using.
+>
+> To deactivate the environment, simply type `deactivate` and you will return to your normal shell.
+>
+> Within the virtual environment, you can use the command `pip` instead of `pip3` and `python` instead of `python3`.
 
 ## Contributing
 
